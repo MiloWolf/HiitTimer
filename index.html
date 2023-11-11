@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hiit Timer</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="top">
+      <div class="container">
+        <div class="inputs">
+          <label for="rounds">Rounds</label>
+          <input
+            type="number"
+            id="rounds"
+            name="rounds"
+            placeholder="# Rounds"
+          />
+
+          <label for="interval">Interval</label>
+          <input
+            type="text"
+            id="interval"
+            name="interval"
+            placeholder="ex. 2:30"
+          />
+
+          <label for="rest">Rest</label>
+          <input type="text" id="rest" name="rest" placeholder="ex. 0:40" />
+
+          <label for="cooldown">Cool Down</label>
+          <input
+            type="text"
+            id="cooldown"
+            name="cooldown"
+            placeholder="ex. 5:00"
+          />
+        </div>
+      </div>
+    </div>
+    <div class="mid">
+      <div class="mid container">
+        <div class="buttons">
+          <button id="startButton">Start</button>
+          <button id="stopButton">Stop</button>
+          <button id="resetButton">Reset</button>
+        </div>
+      </div>
+    </div>
+    <div class="bottom">
+      <div class="bottom container">
+        <span id="ronda">Round 0</span>
+        <span id="state">Work as hell / Rest</span>
+        <span id="timerMin">00</span>
+        <span>:</span>
+        <span id="timerSec">00</span>
+        <div class="Sessionclock">
+          Session Time
+          <span id="Shrs">00</span>
+          <span>:</span>
+          <span id="Smin">00</span>
+          <span>:</span>
+          <span id="Ssec">00</span>
+        </div>
+        <div class="Actualclock">
+          Actual Time
+          <span id="hrs">00</span>
+          <span>:</span>
+          <span id="min">00</span>
+          <span>:</span>
+          <span id="sec">00</span>
+        </div>
+      </div>
+    </div>
+    <p id="errorinterval"></p>
+    <p id="errorrest"></p>
+    <p id="errorcooldown"></p>
+
+    <script src="script.js"></script>
+  </body>
+</html>
