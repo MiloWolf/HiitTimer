@@ -4,11 +4,47 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Hiit Timer</title>
+      <svg class="always-visible">
+        <img class="always-visible" src="path/to/your-svg-file.svg" alt="Your SVG" />
+      </svg>
     <link rel="stylesheet" href="style.css" />
+    <!-- Font Awesome link -->
+    <link
+      rel="stylesheet"
+      href="path/to/font-awesome/css/font-awesome.min.css"
+    />
+    <!-- Google icons -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz,wght@6..12,200;6..12,300;6..12,700&family=Poppins:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
   </head>
+  <header><div class="tophead">
+    <div class="title">HIIT TIMER</div>
+    <div class="switchcon">
+      <!-- Rounded switch -->
+      <label class="switch">
+        <input type="checkbox">
+        <span class="slider round"></span>
+      </label>
+    </div>
+  </div>
+    </label></header>
   <body>
     <div class="top">
       <div class="container">
+        <style>
+          .material-symbols-outlined {
+            font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+          }
+        </style>
         <div class="inputs">
           <label for="rounds">Rounds</label>
           <input
@@ -52,6 +88,8 @@
       <div class="bottom container">
         <span id="ronda">Round 0</span>
         <span id="state">Work as hell / Rest</span>
+        <span id="timerHrs">00</span>
+        <span>:</span>
         <span id="timerMin">00</span>
         <span>:</span>
         <span id="timerSec">00</span>
@@ -73,9 +111,9 @@
         </div>
       </div>
     </div>
-    <p id="errorinterval"></p>
-    <p id="errorrest"></p>
-    <p id="errorcooldown"></p>
+    <p id="errorInterval"></p>
+    <p id="errorRest"></p>
+    <p id="errorCooldown"></p>
 
     <script src="script.js"></script>
   </body>
