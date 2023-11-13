@@ -20,11 +20,12 @@ const ronda = document.getElementById("ronda");
 const state = document.getElementById("state");
 
 //let intervalId;
-let dynVars = [];
+dynVars = [3, 5, 2, 4];
 
+///////////////////////////////////Take al inputs//////////////////////////////////
 function extractTime(input, varName) {
   const parts = input.split(":");
-  let dynamicID = "error" + varName;
+  let errorID = "error" + varName;
 
   if (parts.length === 2) {
     const minutes = parseInt(parts[0]);
@@ -34,10 +35,10 @@ function extractTime(input, varName) {
 
     if (!isNaN(minutes) && !isNaN(seconds)) {
       document.getElementById(
-        dynamicID
+        errorID
       ).textContent = `${varName}: Minutes: ${minutes}, Seconds: ${seconds}`;
     } else {
-      document.getElementById(dynamicID).textContent =
+      document.getElementById(errorID).textContent =
         'Invalid input. Please use the format "minutes:seconds".';
     }
   } else {
@@ -45,80 +46,59 @@ function extractTime(input, varName) {
       'Invalid input. Please use the format "minutes:seconds".';
   }
 }
-
-// Function to create and manage the gym timer
-function gymTimer(array) {
-  let [rounds, intervalTime, restTime, coolDownTime] = array;
-  let currentRound = 1;
-  let isResting = false;
-  let isCoolingDown = false;
-
-  const totalTime = rounds * (intervalTime + restTime) + coolDownTime;
-
-  const displayTime = (time) => {
-    const minutes = Math.floor(time / 60);
-    const seconds = time % 60;
-    return `${minutes.toString().padStart(2, "0")}:${seconds
-      .toString()
-      .padStart(2, "0")}`;
-  };
-
-  const timerInterval = setInterval(() => {
-    if (totalTime <= 0) {
-      clearInterval(timerInterval);
-      console.log("Gym session complete!");
-    } else if (currentRound <= rounds) {
-      if (!isResting && !isCoolingDown) {
-        if (intervalTime > 0) {
-          console.log(
-            `Round ${currentRound}: Interval ${displayTime(intervalTime)}`
-          );
-          intervalTime--;
-        } else {
-          isResting = true;
-          console.log(`Round ${currentRound}: Rest ${displayTime(restTime)}`);
-        }
-      } else if (isResting) {
-        if (restTime > 0) {
-          console.log(`Round ${currentRound}: Rest ${displayTime(restTime)}`);
-          restTime--;
-        } else {
-          isResting = false;
-          currentRound++;
-          intervalTime = intervalTime; // Reset interval time for the next round
-        }
-      } else if (!isResting && currentRound > rounds) {
-        if (coolDownTime > 0) {
-          console.log(`Cool Down: ${displayTime(coolDownTime)}`);
-          coolDownTime--;
-          isCoolingDown = true;
-        } else {
-          isCoolingDown = false;
-        }
-      }
-    }
-    totalTime--;
-  }, 1000); // Timer updates every second
+////////////////////////////Hiit Timer function /////////////////////////////////////
+// Function to async countdowns
+function delay(ms) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
+// Countdown function for interval and rest
+async function countdown(number, type) {
+  for (let i = number; i > 0; i--) {
+    console.log(`${type} Countdown: ${i}`);
+    await delay(1000); // wait for 1 second
+  }
+}
+
+// Main function for interval training
+async function hiitTimer([rounds, interval, rest, cool]) {
+  while (rounds > 0) {
+    // Interval countdown
+    await countdown(interval, "Interval");
+
+    // Rest countdown
+    if (rounds > 1) {
+      await countdown(rest, "Rest");
+    }
+
+    rounds--;
+  }
+
+  // Cool down countdown
+  await countdown(cool, "Cool Down");
+  console.log("Complete!");
+}
+
+// Example usage with interval = 5, rest = 3, rounds = 3, cool = 10
+
 startButton.addEventListener("click", () => {
-  const r = document.getElementById("rounds").value;
-  dynVars.push(r);
+  // const r = document.getElementById("rounds").value;
+  // dynVars.push(r * 1);
 
-  const i = document.getElementById("interval").value;
-  extractTime(i, "interval");
+  // const i = document.getElementById("interval").value;
+  // extractTime(i, "interval");
 
-  const re = document.getElementById("rest").value;
-  extractTime(re, "rest");
+  // const re = document.getElementById("rest").value;
+  // extractTime(re, "rest");
 
-  const cool = document.getElementById("cooldown").value;
-  extractTime(cool, "cooldown");
+  // const cool = document.getElementById("cooldown").value;
+  // extractTime(cool, "cooldown");
+  // This will build the output -> dynVars =[rounds, interval, rest, cool down ]
 
-  ronda.innerHTML = "Round " + r;
-  state.innerHTML = "Work as HELL!!!";
-  //console.log(r, i, re, cool);
+  // Start the HIIT timer
 
-  // intervalId = setInterval(updateInputs, 1000); // Replace 1000 with your desired interval in milliseconds
+  console.log(dynVars);
+  hiitTimer(dynVars);
 });
 
 resetButton.addEventListener("click", () => {
