@@ -6,6 +6,13 @@ body {
   font-family: "Nunito Sans", sans-serif;
   font-weight: 100;
   padding-top: 60px;
+  /* Set the SVG as a background image */
+  background-image: url("wavehr.svg");
+
+  /* Set background properties */
+  background-size: cover; /* Cover the entire background */
+  background-attachment: fixed; /* Fix the background in place */
+  background-position: center 75%; /* Position the background at 75% from the top */
 }
 
 /* The switch - the box around the slider */
@@ -89,4 +96,5 @@ input:checked + .slider:before {
 
 .switchcon {
   order: 2;
+  padding-right: 30px;
 }
