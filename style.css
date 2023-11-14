@@ -12,8 +12,8 @@ body {
 
   /* Set background properties */
   background-size: cover; /* Cover the entire background */
-  background-attachment: fixed; /* Fix the background in place */
-  background-position: center 75%; /* Position the background at 75% from the top */
+  /* background-attachment: fixed; */
+  background-position: bottom; /* Position the background at 75% from the top */
 }
 
 /* The switch - the box around the slider */
@@ -100,29 +100,6 @@ input:checked + .slider:before {
   padding-right: 30px;
 }
 
-.top,
-.mid,
-.bottom {
-  height: 25%; /* Each div takes 25% of the viewport height */
-  width: 100%;
-}
-
-.mid,
-.bottom {
-  height: 25%; /* Each div takes 25% of the viewport height */
-  width: 100%;
-}
-
-.bottom {
-  height: 25%; /* Each div takes 25% of the viewport height */
-  width: 100%;
-}
-
-.container {
-  display: flex;
-  justify-content: center;
-}
-
 .inputs {
   display: flex;
   flex-direction: column;
@@ -136,6 +113,8 @@ input:checked + .slider:before {
   border-radius: 10px;
   background-color: black;
   color: white;
+  font-size: 12px;
+  text-align: center;
 }
 
 .inputs input::placeholder {
@@ -152,4 +131,111 @@ input:checked + .slider:before {
   left: -70px;
   color: white;
   font-weight: 700;
+}
+
+.mid {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 10vh; /* Adjust the height as needed */
+}
+
+.container {
+  text-align: center;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+button {
+  background-color: black;
+  color: white;
+  border: none;
+  border-radius: 10px; /* Adjust the border-radius as needed */
+  padding: 10px 20px;
+  margin: 0 10px;
+  box-shadow: 0 0 2px rgb(149, 50, 50); /* Adjust the shadow color and size as needed */
+  cursor: pointer;
+}
+
+/* Hover effect (optional) */
+button:hover {
+  box-shadow: 0 0 15px red;
+}
+/* Timer Section */
+.bottom {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+}
+
+.bottom.main {
+  flex: 0.7;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 10px;
+  border: 2px solid red;
+  border-radius: 5px;
+  background-color: rgba(0, 0, 0, 0.9);
+}
+
+.specs,
+.ronda,
+.state {
+  font-size: 10px;
+}
+.mainTimer {
+  font-size: 40px;
+}
+.bottom.session {
+  flex: 0.2;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  font-size: 10px;
+}
+
+.last {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+.clock {
+  flex: 0.1;
+  display: flex;
+  flex-direction: row;
+
+  align-items: center;
+  order: 2;
+  padding-right: 30px;
+}
+
+.errormsg {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 7;
+  order: 1;
+}
+
+/* Styling for the spans */
+.bottom span {
+  font-size: 1.5em; /* Adjust the font size as needed */
+  margin: 0 5px;
+}
+
+/* Styling for the error messages */
+.errormsg p {
+  margin: 0;
 }

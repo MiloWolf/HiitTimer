@@ -32,9 +32,7 @@ function extractTime(input, varName) {
     dynVars.push(minutes * 60 + seconds);
 
     if (!isNaN(minutes) && !isNaN(seconds)) {
-      document.getElementById(
-        errorID
-      ).textContent = `${varName}: Minutes: ${minutes}, Seconds: ${seconds}`;
+      document.getElementById(errorID).textContent = "🏋🏻‍♂️";
     } else {
       document.getElementById(errorID).textContent =
         'Invalid input. Please use the format "minutes:seconds".';
