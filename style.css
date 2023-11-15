@@ -13,7 +13,6 @@ body {
   background-size: cover; /* Cover the entire background */
   /* background-attachment: fixed; */
   background-position: bottom; /* Position the background at 75% from the top */
-  backdrop-filter: blur(3px);
 }
 
 /* The switch - the box around the slider */
@@ -182,15 +181,25 @@ button:hover {
   border: 2px solid red;
   border-radius: 5px;
   background-color: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(3px);
 }
 
-.specs,
-.ronda,
-.state {
-  font-size: 10px;
+.specs {
+  padding-top: 5px;
+  font-size: 9px;
+  font-family: "Nunito Sans", sans-serif;
 }
+.ronda {
+  order: 1;
+  left: -5px;
+}
+
+.state {
+  order: 2;
+}
+
 .mainTimer {
-  font-size: 40px;
+  font-size: 42px;
 }
 .bottom.session {
   flex: 0.2;
@@ -203,6 +212,8 @@ button:hover {
 
 .last {
   position: fixed;
+  display: flex;
+  flex-direction: column;
   bottom: 1px;
   width: 100%;
   display: flex;
@@ -220,21 +231,25 @@ button:hover {
   padding-right: 30px;
 }
 
-.errormsg {
+.msg {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-size: 7;
   order: 1;
+  padding-left: 10px;
+  font-size: 50px;
+  font-weight: 700;
 }
 
 /* Styling for the spans */
 .bottom span {
-  font-size: 1.5em; /* Adjust the font size as needed */
+  /* font-size: 1.5em; */
   margin: 0 5px;
 }
 
-/* Styling for the error messages */
-.errormsg p {
-  margin: 0;
+/* Styling for the COMPLETE message */
+.complete {
+  padding-left: 10px;
+  text-justify: center;
+  vertical-align: middle;
 }

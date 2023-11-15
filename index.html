@@ -6,15 +6,15 @@
     <title>Hiit Timer</title>
     <link rel="stylesheet" href="style.css" />
     <!-- Font Awesome link -->
-    <link
+    <!-- <link
       rel="stylesheet"
       href="path/to/font-awesome/css/font-awesome.min.css"
-    />
+    /> -->
     <!-- Google icons -->
-    <link
+    <!-- <link
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
-    />
+    /> -->
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -71,7 +71,7 @@
       <div class="mid container">
         <div class="buttons">
           <button id="startButton">Start</button>
-          <button id="stopButton">Stop</button>
+          <button id="pauseButton">Pause</button>
           <button id="resetButton">Reset</button>
         </div>
       </div>
@@ -79,8 +79,8 @@
     <div class="bottom">
       <div class="bottom main">
         <div class="specs">
-          <span id="ronda">Round 0</span>
-          <span id="state">Work as hell / Rest</span>
+          <span id="ronda">Round 0/0</span>
+          <span id="state">Interval / Rest</span>
         </div>
         <div class="mainTimer">
           <span id="timerHrs">00</span>
@@ -106,10 +106,9 @@
           <span>:</span>
           <span id="sec">00</span>
         </div>
-        <div class="errormsg">
-          <p id="errorInterval"></p>
-          <p id="errorRest"></p>
-          <p id="errorCooldown"></p>
+        <div class="msg">
+          <p id="error"></p>
+          <p id="complete"></p>
         </div>
       </div>
     </div>
