@@ -149,20 +149,15 @@ input:checked + .slider:before {
 }
 
 button {
-  background-color: black;
+  background-color: rgb(255, 51, 0);
   color: white;
   border: none;
   border-radius: 10px; /* Adjust the border-radius as needed */
   padding: 10px 20px;
   margin: 0 10px;
-  box-shadow: 0 0 2px rgb(255, 0, 0); /* Adjust the shadow color and size as needed */
   cursor: pointer;
 }
 
-/* Hover effect (optional) */
-button:hover {
-  box-shadow: 0 0 15px red;
-}
 /* Timer Section */
 .bottom {
   display: flex;
@@ -226,9 +221,9 @@ button:hover {
   flex: 0.1;
   display: flex;
   flex-direction: row;
-  align-items: center;
+  align-content: center;
   order: 2;
-  padding-right: 30px;
+  background-color: red;
 }
 
 .msg {
@@ -236,7 +231,6 @@ button:hover {
   justify-content: space-between;
   align-items: center;
   order: 1;
-  padding-left: 10px;
   font-size: 50px;
   font-weight: 700;
 }
