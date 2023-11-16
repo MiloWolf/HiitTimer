@@ -231,7 +231,7 @@ button {
   align-items: center;
   margin: 0 10px;
   border: 2px solid var(--character-color-ligth);
-  border-radius: 5px;
+  border-radius: 10px;
   background-color: var(--background-color-blur-light);
   backdrop-filter: blur(3px);
   color: var(--text-color-light);
@@ -245,7 +245,8 @@ button {
 
 .specs {
   padding-top: 5px;
-  font-size: 9px;
+  font-size: 12px;
+  font-weight: 700;
   font-family: "Nunito Sans", sans-serif;
 }
 .ronda {
@@ -323,4 +324,11 @@ button {
   padding-left: 10px;
   text-justify: center;
   vertical-align: middle;
+  color: var(--text-color-light);
+}
+.dark-mode .complete {
+  padding-left: 10px;
+  text-justify: center;
+  vertical-align: middle;
+  color: var(--text-color-dark);
 }
