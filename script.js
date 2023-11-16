@@ -18,10 +18,15 @@ const pauseButton = document.getElementById("pauseButton");
 const resetButton = document.getElementById("resetButton");
 const ronda = document.getElementById("ronda");
 const state = document.getElementById("state");
+const darkToggle = document.getElementById("darkToggle"); // Replace 'checkbox' with the actual ID of your checkbox
 
 dynVars = [1, 1, 1, 0];
 let y = 0;
 // dynVars = [];
+
+darkToggle.addEventListener("change", function () {
+  document.body.classList.toggle("dark-mode", darkToggle.checked);
+});
 
 ///////////////////////////////////Take all inputs//////////////////////////////////
 function extractTime(input, varName) {

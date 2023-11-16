@@ -1,18 +1,61 @@
+:root {
+  --background-color-light: #fff; /* Light mode background color */
+  --text-color-light: #333; /* Light mode text color */
+  --character-color-ligth: red;
+  --character-color-dark: rgb(255, 221, 0);
+  --background-color-dark: #000; /* Dark mode background color */
+  --text-color-dark: #fff; /* Dark mode text color */
+  --background-color-blur-light: rgba(
+    255,
+    255,
+    255,
+    0.65
+  ); /* Light mode background color */
+  --background-color-blur-dark: rgba(
+    0,
+    0,
+    0,
+    0.65
+  ); /* Light mode background color */
+}
+
+/* Add styles for dark mode using a class, like .dark-mode */
+.dark-mode {
+  background-color: var(--background-color-dark);
+  color: var(--text-color-dark);
+}
 /* Background styles */
 body {
-  background-color: #000000;
-  color: white;
+  background-color: var(--background-color-light);
+  color: var(--text-color-light);
   /* Font Style */
   font-family: "Nunito Sans", sans-serif;
   font-weight: 300;
   font-size: 12px;
   padding-top: 60px;
-  /* Set the SVG as a background image */
-  background-image: url("wavehr.svg");
-  /* Set background properties */
-  background-size: cover; /* Cover the entire background */
-  /* background-attachment: fixed; */
-  background-position: bottom; /* Position the background at 75% from the top */
+}
+
+.dark-mode body {
+  filter: hue-rotate(60deg);
+}
+
+#visual {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  bottom: auto;
+  background-size: cover;
+  z-index: -1;
+}
+
+#visual path {
+  stroke: var(--character-color-ligth);
+}
+
+.dark-mode #visual path {
+  stroke: var(--character-color-dark);
 }
 
 /* The switch - the box around the slider */
@@ -38,7 +81,7 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: #ccc;
+  background-color: var(--character-color-ligth);
   -webkit-transition: 0.4s;
   transition: 0.4s;
 }
@@ -56,11 +99,11 @@ body {
 }
 
 input:checked + .slider {
-  background-color: #222bd2;
+  background-color: var(--character-color-ligth);
 }
 
-input:focus + .slider {
-  box-shadow: 0 0 1px #2196f3;
+.dark-mode input:checked + .slider {
+  background-color: var(--character-color-dark);
 }
 
 input:checked + .slider:before {
@@ -108,12 +151,16 @@ input:checked + .slider:before {
 .inputs input {
   width: 200px;
   padding: 10px;
-  border: 2px solid red;
+  border: 2px solid var(--character-color-ligth);
+  background-color: var(--background-color-light);
   border-radius: 10px;
-  background-color: black;
-  color: white;
   font-size: 12px;
   text-align: center;
+}
+
+.dark-mode .inputs input {
+  border: 2px solid var(--character-color-dark);
+  background-color: var(--background-color-dark);
 }
 
 .inputs input::placeholder {
@@ -124,12 +171,17 @@ input:checked + .slider:before {
 
 .inputs label {
   position: relative;
-  background-color: #000000;
+  background-color: var(--background-color-light);
+  color: var(--text-color-light);
   padding: 5px;
   top: 15px;
   left: -70px;
-  color: white;
   font-weight: 700;
+}
+
+.dark-mode .inputs label {
+  background-color: var(--background-color-dark);
+  color: var(--text-color-dark);
 }
 
 .mid {
@@ -149,13 +201,18 @@ input:checked + .slider:before {
 }
 
 button {
-  background-color: rgb(255, 51, 0);
-  color: white;
+  background-color: var(--character-color-ligth);
+  color: var(--text-color-dark);
   border: none;
   border-radius: 10px; /* Adjust the border-radius as needed */
   padding: 10px 20px;
   margin: 0 10px;
   cursor: pointer;
+}
+
+.dark-mode button {
+  background-color: var(--character-color-dark);
+  color: var(--text-color-light);
 }
 
 /* Timer Section */
@@ -173,10 +230,17 @@ button {
   justify-content: center;
   align-items: center;
   margin: 0 10px;
-  border: 2px solid red;
+  border: 2px solid var(--character-color-ligth);
   border-radius: 5px;
-  background-color: rgba(0, 0, 0, 0.65);
+  background-color: var(--background-color-blur-light);
   backdrop-filter: blur(3px);
+  color: var(--text-color-light);
+}
+
+.dark-mode .bottom.main {
+  border: 2px solid var(--character-color-dark);
+  background-color: var(--background-color-blur-dark);
+  color: var(--text-color-dark);
 }
 
 .specs {
@@ -202,7 +266,13 @@ button {
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  font-size: 10px;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--text-color-light);
+}
+
+.dark-mode .bottom.session {
+  color: var(--text-color-dark);
 }
 
 .last {
@@ -219,11 +289,18 @@ button {
 
 .clock {
   flex: 0.1;
+  font-size: 20px;
   display: flex;
   flex-direction: row;
   align-content: center;
   order: 2;
-  background-color: red;
+  background-color: var(--character-color-ligth);
+  color: var(--text-color-dark);
+}
+
+.dark-mode .clock {
+  background-color: var(--character-color-dark);
+  color: var(--text-color-light);
 }
 
 .msg {
