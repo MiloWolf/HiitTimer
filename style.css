@@ -142,6 +142,47 @@ input:checked + .slider:before {
   padding-right: 30px;
 }
 
+.droplist {
+  padding: 8px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #fff;
+  color: #333;
+  outline: none; /* Remove the default focus outline */
+  cursor: pointer;
+}
+
+/* Style for the dropdown arrow */
+.droplist::-ms-expand {
+  display: none; /* Hide the default arrow in IE Edge
+}
+
+.droplist::after {
+  content: "\25BE"; /* Unicode for down arrow */
+  position: absolute;
+  top: calc(50% - 5px);
+  right: 10px;
+  pointer-events: none;
+}
+
+/* Hover styles */
+.droplist:hover {
+  border-color: #aaa;
+}
+
+/* Focus styles */
+.droplist:focus {
+  border-color: #66afe9;
+  box-shadow: 0 0 5px rgba(102, 175, 233, 0.6);
+}
+
+/* Style for the dropdown options */
+.droplist option {
+  background-color: #fff;
+  color: #333;
+}
+
 .inputs {
   display: flex;
   flex-direction: column;
@@ -227,7 +268,6 @@ button {
   flex: 0.7;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   margin: 0 10px;
   border: 2px solid var(--character-color-ligth);
@@ -297,6 +337,8 @@ button {
   order: 2;
   background-color: var(--character-color-ligth);
   color: var(--text-color-dark);
+  border: none;
+  border-radius: 10px; /* Adjust the border-radius as needed */
 }
 
 .dark-mode .clock {

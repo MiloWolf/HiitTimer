@@ -37,7 +37,18 @@
     </label></header>
   <body>
     <div class="top">
-      <div class="container">
+      <select class="droplist">
+        <option value="Pre Sets">Pre Set</option>
+        <option value="Manual">Manual</option>
+      </select>
+      
+      <div id="presets" class="buttons container">
+        <!-- Predefined buttons -->
+        <button>Zone 2</button>
+        <button>MAX Hiit</button>
+        <button>Weigth Lifting</button>
+      </div>
+      <!-- <div class="inputs"> -->
         <div class="inputs">
           <label for="rounds">Rounds</label>
           <input
